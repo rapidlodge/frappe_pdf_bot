@@ -1,0 +1,73 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col border-right border-dark">
+            <div>
+                <h4 class="aler alert-info text-center p-5 shadow-lg bg-white rounded mb-8"> Ask ME! </h4>
+            </div>
+            <div class="chat-container" id="chat-container">
+                <!-- Messages will be dynamically added here -->
+            </div>
+
+            <div class="p-5 input-group">
+                <input class="form-control shadow bg-white rounded p-2 mr-6" type="text" id="inputField" name="userInput" required>
+                <button class="btn btn-outline-danger secondary font-weight-bolder" id="button-addon2" onclick="processUserInput()">Send</button>
+                <div id="response"></div>
+            </div>
+        </div>
+        <hr>
+        <div class="col pl-5">
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <h3>List of PDF you are currently interacting with</h3>
+                            <ol>
+                            {% for user in users %}
+                            {% if user.file1 %}
+                                <li>{{ user.file1 }}</li>
+                                <li>{{ user.file2 }}</li>
+                                <li>{{ user.file3 }}</li>
+                                <li>{{ user.file4 }}</li>
+                                    {% else %}
+                                    <li>No file found!</li>
+                                    {% endif %}
+                            {% endfor %}
+                            </ol>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!------------------------------------ ----------------------------------------->
+        <!------------------------------------ chat history ---------------------------->
+        <!------------------------------------ ----------------------------------------->
+        <!-- <hr>
+        <div class="col pl-5">
+            <div class="row">
+                    <div class="col">
+                        <div>
+                            <h4 class="aler alert-danger shadow rounded p-5"> Chat History </h4>
+                        </div>
+                        <div id="list"></div>
+
+                        <div>
+                            <button class="btn btn-outline-danger" id="clearButton">Clear</button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-outline-dark shadow rounded float-right" id="reloadButton"><span class="font-weight-bolder">+</span>  New Chat</button>
+                    </div>
+                </div>
+            </div> -->
+    </div>
+</div>
+{%- block footer -%}
+
+{%- endblock -%}
+
+<!-- this is a sample default web page template -->
+
+{% endblock %}
