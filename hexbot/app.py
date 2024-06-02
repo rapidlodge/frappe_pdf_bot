@@ -46,14 +46,14 @@ class chat_gen():
         )
         # texts = text_splitter.create_documents([documents[0].page_content])
         docs = text_splitter.split_documents(documents)
-        embeddings = OpenAIEmbeddings(api_key="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")
+        embeddings = OpenAIEmbeddings(api_key="")
 
         db = DocArrayInMemorySearch.from_documents(docs, embeddings)
         retriever = db.as_retriever()
         return retriever
 
     def load_model(self):
-        llm = ChatOpenAI(openai_api_key="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")
+        llm = ChatOpenAI(openai_api_key="")
 
         # Define your system instruction
         # system_instruction = """ As an AI assistant, you must answer the query from the user from the retrieved
